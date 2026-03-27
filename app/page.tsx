@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = 'force-dynamic'; // 强制动态渲染，跳过构建时的静态预检查
 
 import React, { useEffect, useState } from 'react';
 import { Menu, Globe, Loader2, Lock, Clock, Calendar as CalendarIcon } from 'lucide-react';
