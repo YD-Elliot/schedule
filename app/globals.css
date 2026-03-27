@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 下面保留你之前的 :root 和 body 样式即可 */
-
 :root {
   --google-gray: #f8f9fa;
   --google-blue: #1a73e8;
@@ -18,20 +16,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* v4 中 @apply 依然可用，但建议确保类名不再冲突
-  注意：v4 不需要再写 @tailwind base 等，上面的 @import 已经全包了
-*/
+/* 玻璃拟态卡片效果 */
 .calendar-card {
-  @apply bg-white rounded-[24px] border border-[#dadce0] transition-shadow;
+  @apply bg-white rounded-[24px] border border-[#dadce0] transition-all duration-300;
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
 }
 
 .calendar-card:hover {
-  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+  @apply transform -translate-y-1;
+  box-shadow: 0 4px 12px rgba(60,64,67,0.2);
 }
-
-/* 自定义滚动条保持不变 */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #bdc1c6; }
