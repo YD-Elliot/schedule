@@ -1,7 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import "tailwindcss";
+
+/* Tailwind v4 使用特定的主题定义方式 */
+@theme {
+  --color-google-gray: #f8f9fa;
+  --color-google-blue: #1a73e8;
+  --color-google-text: #3c4043;
+  --color-google-border: #dadce0;
+}
 
 :root {
   --google-gray: #f8f9fa;
@@ -17,12 +22,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 让 Busy 块看起来像浮动的卡片 */
+/* v4 中 @apply 依然可用，但建议确保类名不再冲突
+  注意：v4 不需要再写 @tailwind base 等，上面的 @import 已经全包了
+*/
 .calendar-card {
-  @apply bg-white rounded-[24px] border border-[#dadce0] shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)] transition-shadow hover:shadow-[0_1px_3px_0_rgba(60,64,67,0.3),0_4px_8px_3px_rgba(60,64,67,0.15)];
+  @apply bg-white rounded-[24px] border border-[#dadce0] transition-shadow;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
 }
 
-/* 自定义滚动条，保持精致 */
+.calendar-card:hover {
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+}
+
+/* 自定义滚动条保持不变 */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 10px; }
