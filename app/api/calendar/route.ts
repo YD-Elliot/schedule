@@ -4,8 +4,6 @@ import { NextResponse } from 'next/server';
 import ical from 'node-ical';
 import https from 'https';
 
-export const dynamic = 'force-dynamic';
-
 export async function GET() {
   const url = process.env.APPLE_CALENDAR_URL;
 
