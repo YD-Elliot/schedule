@@ -1,12 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Tailwind v4 使用特定的主题定义方式 */
-@theme {
-  --color-google-gray: #f8f9fa;
-  --color-google-blue: #1a73e8;
-  --color-google-text: #3c4043;
-  --color-google-border: #dadce0;
-}
+/* 下面保留你之前的 :root 和 body 样式即可 */
 
 :root {
   --google-gray: #f8f9fa;
